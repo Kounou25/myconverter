@@ -1,0 +1,41 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "converter/wsgi.py",
+        "use": "@vercel/python",
+        "config": { "buildCommand": "python manage.py collectstatic --noinput" }
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "converter/wsgi.py"
+      }
+    ]
+    
+  }
+  
+
+
+
+  {
+    "version": 2,
+    "builds": [
+      {
+        "src": "converter/wsgi.py",
+        "use": "@vercel/python",
+        "config": { "buildCommand": "python manage.py collectstatic --noinput" }
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "converter/wsgi.py"
+      }
+    ],
+    "env": {
+      "DJANGO_SETTINGS_MODULE": "converter.settings"
+    }
+  }
+  
